@@ -1,0 +1,26 @@
+weight = input("please enter your weight(kg): ")
+height = input("please enter your height(m): ")
+
+w = float(weight)
+h = float(height)
+
+if w == 0 or h == 0:
+    print("Error: Invalid input")
+else:
+    BMI = w / (h ** 2)
+
+    if BMI <= 15:
+        print("Very severely underweight")
+    elif BMI <= 18.5:
+        print('Underweight')
+    elif BMI <= 25:
+        print('Normal')
+    elif BMI <= 30:
+        print('Overweight')
+    elif BMI <= 35:
+        print('Obese Class I')
+    elif BMI <= 40:
+        print('Obese Class II')
+    else:
+        print('Obese Class III')
+print(int(BMI))
