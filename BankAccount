@@ -1,0 +1,54 @@
+# This Python script simulates a basic bank account system.
+
+class BankAccount:
+    def __init__(self, balance=0):
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited ${amount}. New balance: ${self.balance}")
+        else:
+            print("Invalid amount. Please deposit a positive amount.")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.balance}")
+        elif amount > self.balance:
+            print("Insufficient funds.")
+        else:
+            print("Invalid amount. Please withdraw a positive amount.")
+
+    def check_balance(self):
+        print(f"Your balance is ${self.balance}")
+
+
+def main():
+    account = BankAccount()
+
+    while True:
+        print("\nBank Account Options:")
+        print("1. Check Balance")
+        print("2. Deposit Money")
+        print("3. Withdraw Money")
+        print("4. Exit")
+        choice = input("Please enter your choice (1/2/3/4): ")
+
+        if choice == "1":
+            account.check_balance()
+        elif choice == "2":
+            amount = float(input("Enter the deposit amount: $"))
+            account.deposit(amount)
+        elif choice == "3":
+            amount = float(input("Enter the withdrawal amount: $"))
+            account.withdraw(amount)
+        elif choice == "4":
+            print("Thank you for using our bank account system.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option (1/2/3/4).")
+
+
+if __name__ == "__main__":
+    main()
